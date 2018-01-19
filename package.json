@@ -1,6 +1,6 @@
 {
-  "name": "mui-redux-alerts",
-  "version": "0.2.0",
+  "name": "@zadkiel/mui-redux-alerts",
+  "version": "0.2.1",
   "description": "Material-UI + Redux Dialogs and Snackbars",
   "main": "./lib/index.js",
   "scripts": {
@@ -14,7 +14,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ThadeuLuz/mui-redux-alerts.git"
+    "url": "git+https://github.com/aslafy-z/mui-redux-alerts.git"
   },
   "keywords": [
     "Material-UI",
