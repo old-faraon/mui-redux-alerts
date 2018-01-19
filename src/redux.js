@@ -75,10 +75,10 @@ const getKeyProps = (first, second, dispatch, closeAction) => {
   props.open = true;
 
   // onRequestClose monkey patch
-  const originalOnRequestClose = props.onRequestClose;
-  props.onRequestClose = (buttonClicked) => {
+  const originalOnClose = props.onClose;
+  props.onClose = (buttonClicked) => {
     close();
-    if (originalOnRequestClose) originalOnRequestClose(buttonClicked);
+    if (originalOnClose) originalOnClose(buttonClicked);
   };
 
   return { key, props };
