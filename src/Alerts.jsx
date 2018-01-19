@@ -15,8 +15,8 @@ const style = {
   transform: 'translate(-50%, 0px)',
 };
 
-const Alerts = ({ alerts }) => (
-  <div style={style} >
+const Alerts = ({ alerts, style: styleProp }) => (
+  <div style={styleProp || style} >
     {cleanAndOrder(alerts.snackbars).map(p => (<Snackbar {...p} />))}
     {cleanAndOrder(alerts.dialogs).map(p => (<Dialog {...p} />))}
   </div>
@@ -27,6 +27,11 @@ Alerts.propTypes = {
     dialogs: PropTypes.object.isRequired,
     snackbars: PropTypes.object.isRequired,
   }).isRequired,
+  style: PropTypes.object, // eslint-disable-line react/forbid-prop-types
+};
+
+Alerts.defaultProps = {
+  style: undefined,
 };
 
 export default Alerts;

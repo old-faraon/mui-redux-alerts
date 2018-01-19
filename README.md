@@ -1,6 +1,6 @@
 # Mui Redux Alerts
 
-Material-UI + Redux Dialogs and Snackbars. 
+Material-UI + Redux Dialogs and Snackbars.
 
 According to Material-UI documentation, [Snackbar](http://www.material-ui.com/#/components/snackbar) and [Dialog](http://www.material-ui.com/#/components/dialog) components are presented and used exactly as every other component. Although that's the 'react way' to use them, I personaly feel that due to their volatile nature, they should'nt be used as fixed components with display being set by a parent component. If you also use redux, there is another way.
 
@@ -66,10 +66,20 @@ export default App;
 
 // Example 2 - Connected parent
 
+const style = {
+  position: 'fixed',
+  bottom: 0,
+  left: '50%',
+  transform: 'translate(-50%, 0px)',
+};
+
 const Layout = ({ alerts }) => (
   <div>
     // The rest of your app
-    <Alerts alerts={alerts} />
+    <Alerts
+      alerts={alerts}
+      style={style} // override style if needed
+    />
   </div>
 );
 
@@ -87,7 +97,7 @@ import { openDialog, openSnackbar, closeDialog, closeSnackbar } from 'mui-redux-
 
 ### Simple Examples
 
-All you need is an object that will be used as props for your Dialogs/Snackbars. You can see which props you can use on Material-UI documentation for Snackbars and Dialogs. 
+All you need is an object that will be used as props for your Dialogs/Snackbars. You can see which props you can use on Material-UI documentation for Snackbars and Dialogs.
 
 > Caveat: It is not necessary to mess with `open` and `onRequestClose` properties. They are filled automatically.
 
