@@ -2,6 +2,8 @@
 // Constants
 // ----------------------------------------------------------------------------
 
+import Snackbar from 'material-ui/Snackbar';
+
 const OPEN_SNACKBAR = '@@mui-redux-alerts/OPEN_SNACKBAR';
 const OPEN_DIALOG = '@@mui-redux-alerts/OPEN_DIALOG';
 const CLOSE_SNACKBAR = '@@mui-redux-alerts/CLOSE_SNACKBAR';
@@ -74,12 +76,19 @@ const getKeyProps = (first, second, dispatch, closeAction) => {
   props.timestamp = Date.now();
   props.open = true;
 
-  // onRequestClose monkey patch
-  const originalOnRequestClose = props.onRequestClose;
-  props.onRequestClose = (buttonClicked) => {
+  // onClose monkey patch
+  // compat patch for material-ui-next
+  let originalOnClose = props.onRequestClose;
+  if (Snackbar.propTypes.onClose) originalOnClose = props.onClose;
+  const onCloseAction = (buttonClicked) => {
     close();
-    if (originalOnRequestClose) originalOnRequestClose(buttonClicked);
+    if (originalOnClose) originalOnClose(buttonClicked);
   };
+  if (Snackbar.propTypes.onClose) {
+    props.onClose = onCloseAction;
+  } else {
+    props.onRequestClose = onCloseAction;
+  }
 
   return { key, props };
 };
