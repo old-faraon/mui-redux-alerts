@@ -50,8 +50,9 @@
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-jsx-a11y": "^4.0.0",
     "eslint-plugin-react": "^6.10.3",
-    "material-ui": "^0.17.1",
-    "react": "^15.4.2",
+    "material-ui": "^1.0.0",
+    "prop-types": "^15.6.0",
+    "react": "^16.0.0",
     "rimraf": "^2.6.1"
   }
 }
