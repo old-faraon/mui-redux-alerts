@@ -7,6 +7,7 @@
     "clean": "rimraf lib",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint src test --ext jsx --ext js --color",
+    "prepare": "npm run prepublish",
     "prepublish": "npm run lint && npm run build",
     "prebuild": "npm run clean",
     "build": "cross-env BABEL_ENV=commonjs babel src --out-dir lib",
